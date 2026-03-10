@@ -1,5 +1,5 @@
 """
-Created on Febrero, 2019
+Created on Febrero, 2026
 @author: arizbesilva0-star
 """
 
@@ -30,4 +30,5 @@ if opcion == "1":
 elif opcion == "2":
     cuenta1.retirar(100)
     print("\nRetiro realizado")
+
     cuenta1.imprimirDetalles()
