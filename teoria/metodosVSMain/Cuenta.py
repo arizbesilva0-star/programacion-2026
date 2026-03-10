@@ -1,5 +1,5 @@
 """
-Created on Febrero, 2019
+Created on Febrero, 2026
 @author: arizbesilva0-star
 """
 
@@ -24,4 +24,5 @@ class Cuenta:
     def imprimirDetalles(self):
         print("Saldo:", self.saldo)
         print("Tipo:", self.tipo)
+
         print("Fecha de creación:", self.fechaCreacion)
