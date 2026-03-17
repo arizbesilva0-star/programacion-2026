@@ -1,5 +1,5 @@
 """
-Created on Febrero, 2019
+Created on Marzo, 2026
 @author: arizbesilva0-star
 """
 
@@ -17,21 +17,39 @@ while True:
     opcion = menu.opciones()
 
     if opcion == "1":
-        cantidad = float(input("Cantidad a aumentar: "))
-        inversion1.aumentar(cantidad)
-        print("Capital actualizado:", inversion1.capital)
+        try:
+            cantidad = float(input("Cantidad a aumentar: "))
+        except:
+            print("Error: ingresa un numero valido")
+            continue
+
+        if inversion1.aumentar(cantidad):
+            print("Capital actualizado:", inversion1.capital)
+        else:
+            print("Error en la cantidad")
 
     elif opcion == "2":
-        cantidad = float(input("Cantidad a disminuir: "))
-        inversion1.disminuir(cantidad)
-        print("Capital actualizado:", inversion1.capital)
+        try:
+            cantidad = float(input("Cantidad a disminuir: "))
+        except:
+            print("Error: ingresa un numero valido")
+            continue
+
+        if inversion1.disminuir(cantidad):
+            print("Capital actualizado:", inversion1.capital)
+        else:
+            print("Error: saldo insuficiente o cantidad invalida")
 
     elif opcion == "3":
         resultado = inversion1.calcular()
         print("Monto final de la inversion:", resultado)
 
     elif opcion == "4":
-        inversion1.mostrar()
+        nombre, capital, interes, tiempo = inversion1.mostrar()
+        print("Nombre:", nombre)
+        print("Capital:", capital)
+        print("Interes:", interes)
+        print("Tiempo:", tiempo, "meses")
 
     elif opcion == "5":
         print("Saliendo del sistema...")
