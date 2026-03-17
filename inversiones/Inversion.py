@@ -1,12 +1,10 @@
 """
-Created on Febrero, 2026
+Created on Marzo, 2026
 @author: arizbesilva0-star
 """
 
 class Inversion:
 
-    # Constructor
-    # Inicializa los atributos de la inversión
     def __init__(self, capital, interes, tiempo, nombre):
         self.capital = capital
         self.interes = interes
@@ -15,20 +13,23 @@ class Inversion:
 
     # Aumentar capital
     def aumentar(self, cantidad):
+        if cantidad <= 0:
+            return False
         self.capital = self.capital + cantidad
+        return True
 
     # Disminuir capital
     def disminuir(self, cantidad):
+        if cantidad <= 0 or cantidad > self.capital:
+            return False
         self.capital = self.capital - cantidad
+        return True
 
-    # Calcular monto final con interés simple
+    # Calcular monto final
     def calcular(self):
         monto = self.capital * (1 + self.interes * self.tiempo)
         return monto
 
-    # Mostrar datos
+    # Mostrar datos (sin print)
     def mostrar(self):
-        print("Nombre de inversion:", self.nombre)
-        print("Capital actual:", self.capital)
-        print("Interes:", self.interes)
-        print("Tiempo:", self.tiempo, "meses")
+        return self.nombre, self.capital, self.interes, self.tiempo
