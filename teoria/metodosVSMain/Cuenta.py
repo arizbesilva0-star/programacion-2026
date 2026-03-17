@@ -5,24 +5,22 @@ Created on Febrero, 2026
 
 class Cuenta:
 
-    # Constructor
-    # Inicializa los atributos de la cuenta
     def __init__(self, saldo, tipo, fechaCreacion):
         self.saldo = saldo
         self.tipo = tipo
         self.fechaCreacion = fechaCreacion
 
-    # Método para depositar dinero
     def depositar(self, cantidad):
-        self.saldo = self.saldo + cantidad
+        if cantidad <= 0:
+            return False
+        self.saldo += cantidad
+        return True
 
-    # Método para retirar dinero
     def retirar(self, cantidad):
-        self.saldo = self.saldo - cantidad
+        if cantidad > self.saldo:
+            return False
+        self.saldo -= cantidad
+        return True
 
-    # Método para mostrar la información de la cuenta
-    def imprimirDetalles(self):
-        print("Saldo:", self.saldo)
-        print("Tipo:", self.tipo)
-
-        print("Fecha de creación:", self.fechaCreacion)
+    def __str__(self):
+        return "Saldo: " + str(self.saldo) + ", Tipo: " + self.tipo
