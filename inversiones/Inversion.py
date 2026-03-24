@@ -5,31 +5,30 @@ Created on Marzo, 2026
 
 class Inversion:
 
-    def __init__(self, capital, interes, tiempo, nombre):
-        self.capital = capital
-        self.interes = interes
-        self.tiempo = tiempo
-        self.nombre = nombre
+    def __init__(self, saldo, interes, tiempo, nombre):
+        self.__saldo = saldo
+        self.__interes = interes
+        self.__tiempo = tiempo
+        self.__nombre = nombre
 
-    # Aumentar capital
     def aumentar(self, cantidad):
-        if cantidad <= 0:
+        if cantidad > 0:
+            self.__saldo += cantidad
+            return True
+        else:
+            print("Error")
             return False
-        self.capital = self.capital + cantidad
-        return True
 
-    # Disminuir capital
     def disminuir(self, cantidad):
-        if cantidad <= 0 or cantidad > self.capital:
+        if cantidad > 0 and cantidad <= self.__saldo:
+            self.__saldo -= cantidad
+            return True
+        else:
+            print("Error")
             return False
-        self.capital = self.capital - cantidad
-        return True
 
-    # Calcular monto final
     def calcular(self):
-        monto = self.capital * (1 + self.interes * self.tiempo)
-        return monto
+        return self.__saldo * (1 + self.__interes * self.__tiempo)
 
-    # Mostrar datos (sin print)
     def mostrar(self):
-        return self.nombre, self.capital, self.interes, self.tiempo
+        return self.__nombre, self.__saldo, self.__interes, self.__tiempo
