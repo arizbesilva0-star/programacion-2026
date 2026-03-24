@@ -1,6 +1,6 @@
 """
-Created on Marzo, 2026
-@author: arizbesilva0-star
+Created on March, 2026
+@author: arizbesilva-star
 """
 
 from Inversion import Inversion
@@ -16,21 +16,22 @@ menu.bienvenida()
 
 while True:
 
-    opcion = menu.opciones()
+    opcion = menu.opciones().strip()  # evita errores por espacios
 
     if opcion == "1":
         try:
             cantidad = float(input("Cantidad a aumentar: "))
-            inversion1.aumentar(cantidad)
-            print("Cantidad aumentada")
-        except:
+            if inversion1.aumentar(cantidad):
+                print("Cantidad aumentada")
+        except ValueError:
             print("Ingresa un numero valido")
 
     elif opcion == "2":
         try:
             cantidad = float(input("Cantidad a disminuir: "))
-            inversion1.disminuir(cantidad)
-        except:
+            if inversion1.disminuir(cantidad):
+                print("Cantidad disminuida")
+        except ValueError:
             print("Ingresa un numero valido")
 
     elif opcion == "3":
