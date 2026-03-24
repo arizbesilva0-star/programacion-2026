@@ -32,3 +32,7 @@ class Inversion:
 
     def mostrar(self):
         return self.__nombre, self.__saldo, self.__interes, self.__tiempo
+        return self.__saldo * (1 + self.__interes * self.__tiempo)
+
+    def mostrar(self):
+        return self.__nombre, self.__saldo, self.__interes, self.__tiempo
