@@ -3,12 +3,14 @@ Created on Marzo, 2026
 @author: arizbesilva0-star
 """
 
-from Inversion import *
-from Menu import *
+from Inversion import Inversion
+from Cliente import Cliente
+from Menu import Menu
 
-menu = Menu("Bienvenido al Sistema de Inversiones")
+cliente1 = Cliente("Arizbe", "CDMX", 20)
+inversion1 = Inversion(1000, 0.10, 2, "Inversion BBVA")
 
-inversion1 = Inversion(1000, 0.05, 12, "Inversion Banco BBVA")
+menu = Menu("Sistema de inversiones")
 
 menu.bienvenida()
 
@@ -19,39 +21,33 @@ while True:
     if opcion == "1":
         try:
             cantidad = float(input("Cantidad a aumentar: "))
+            inversion1.aumentar(cantidad)
+            print("Cantidad aumentada")
         except:
-            print("Error: ingresa un numero valido")
-            continue
-
-        if inversion1.aumentar(cantidad):
-            print("Capital actualizado:", inversion1.capital)
-        else:
-            print("Error en la cantidad")
+            print("Ingresa un numero valido")
 
     elif opcion == "2":
         try:
             cantidad = float(input("Cantidad a disminuir: "))
+            inversion1.disminuir(cantidad)
         except:
-            print("Error: ingresa un numero valido")
-            continue
-
-        if inversion1.disminuir(cantidad):
-            print("Capital actualizado:", inversion1.capital)
-        else:
-            print("Error: saldo insuficiente o cantidad invalida")
+            print("Ingresa un numero valido")
 
     elif opcion == "3":
         resultado = inversion1.calcular()
         print("Monto final de la inversion:", resultado)
 
     elif opcion == "4":
-        nombre, capital, interes, tiempo = inversion1.mostrar()
+        nombre, saldo, interes, tiempo = inversion1.mostrar()
         print("Nombre:", nombre)
-        print("Capital:", capital)
+        print("Saldo:", saldo)
         print("Interes:", interes)
         print("Tiempo:", tiempo, "meses")
 
     elif opcion == "5":
+        print(cliente1)
+
+    elif opcion == "6":
         print("Saliendo del sistema...")
         break
 
