@@ -7,7 +7,7 @@ from Cuenta import *
 from Cliente import *
 from Menu import *
 
-menu = Menu("Bienvenido al sistema bancario")
+menu = Menu("Bienvenido al Banco Pato")
 
 cuenta1 = Cuenta(300, "debito", "12/02/2019")
 cliente1 = Cliente("Arizbe", cuenta1)
