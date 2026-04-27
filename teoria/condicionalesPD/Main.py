@@ -3,40 +3,66 @@ Created on Marzo, 2026
 @author: arizbesilva0-star
 """
 
-from Cuenta import *
-from Cliente import *
-from Menu import *
+from cuenta import Cuenta
+from cliente import Cliente
+from menu import Menu
 
-menu = Menu("Bienvenido al Banco")
+def main():
 
-cuenta1 = Cuenta(300, "debito", "12/02/2019")
-cliente1 = Cliente("Arizbe", cuenta1)
+    menu = Menu("Bienvenido al Banco Pato")
 
-menu.bienvenida()
+    cuenta1 = Cuenta(300, "debito", "12/02/2019")
+    cliente1 = Cliente("Arizbe", cuenta1)
 
-while True:
+    menu.bienvenida()
 
-    op = menu.opciones()
+    while True:
 
-    if op == "1":
-        cant = float(input("Cantidad: "))
-        if cuenta1.depositar(cant):
-            print("Deposito correcto")
+        opcion = menu.opciones()
+
+        if opcion == "1":
+
+            while True:
+                try:
+                    cant = float(input("Ingrese la cantidad a depositar: $"))
+
+                    if cuenta1.depositar(cant):
+                        print("Deposito realizado con exito")
+                        print("Saldo actual: $", cuenta1.saldo)
+                        break
+                    else:
+                        print("La cantidad debe ser mayor a 0")
+
+                except:
+                    print("Entrada invalida, intenta de nuevo")
+
+        elif opcion == "2":
+
+            while True:
+                try:
+                    cant = float(input("Ingrese la cantidad a retirar: $"))
+
+                    if cuenta1.retirar(cant):
+                        print("Retiro realizado con exito")
+                        print("Saldo actual: $", cuenta1.saldo)
+                        break
+                    else:
+                        print("Fondos insuficientes o cantidad invalida")
+
+                except:
+                    print("Entrada invalida, intenta de nuevo")
+
+        elif opcion == "3":
+            print("\n--- Informacion de la cuenta ---")
+            print(cliente1)
+
+        elif opcion == "4":
+            print("Sesion finalizada")
+            break
+
         else:
-            print("Error")
+            print("Opcion invalida")
 
-    elif op == "2":
-        cant = float(input("Cantidad: "))
-        if cuenta1.retirar(cant):
-            print("Retiro correcto")
-        else:
-            print("No hay saldo")
 
-    elif op == "3":
-        print(cliente1)
-
-    elif op == "4":
-        break
-
-    else:
-        print("Opcion invalida")
+if __name__ == "__main__":
+    main()
