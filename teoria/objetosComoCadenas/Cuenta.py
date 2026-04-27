@@ -20,4 +20,5 @@ class Cuenta:
         return self.__tipo
 
     def __str__(self):
-        return "Saldo: " + str(self.__saldo) + ", Tipo: " + self.__tipo
+        tmp = "Saldo: " + str(self.__saldo) + ", Tipo: " + self.__tipo
+        return tmp
