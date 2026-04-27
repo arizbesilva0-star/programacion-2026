@@ -6,15 +6,12 @@ Created on Marzo, 2026
 class Menu:
 
     def __init__(self, mensaje):
-        # ATRIBUTO PRIVADO (no debe modificarse desde fuera)
-        self.__mensaje = mensaje
+        self.mensaje = mensaje
 
     def bienvenida(self):
-        # MÉTODO PÚBLICO
-        print(self.__mensaje)
+        print(self.mensaje)
 
     def opciones(self):
-        # MÉTODO PÚBLICO
         print("\n1. Depositar")
         print("2. Retirar")
         print("3. Mostrar cuenta")
