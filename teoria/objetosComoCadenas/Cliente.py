@@ -11,9 +11,10 @@ class Cliente:
         self.edad = edad
         self.cuenta = cuenta
 
-    def mostrarDetalles(self):
-        print("Nombre:", self.nombre)
-        print("Direccion:", self.direccion)
-        print("Edad:", self.edad)
-        print("Tipo de cuenta:", self.cuenta.getTipo())
-        print("Saldo:", self.cuenta.getSaldo())
+    def __str__(self):
+        tmp = "Cliente: " + self.nombre + "\n"
+        tmp += "Direccion: " + self.direccion + "\n"
+        tmp += "Edad: " + str(self.edad) + "\n"
+        tmp += "Tipo de cuenta: " + self.cuenta.getTipo() + "\n"
+        tmp += "Saldo: " + str(self.cuenta.getSaldo())
+        return tmp
