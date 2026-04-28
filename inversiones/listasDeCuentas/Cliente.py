@@ -9,17 +9,24 @@ class Cliente:
         self.__nombre = nombre
         self.__direccion = direccion
         self.__edad = edad
-        self.__cuentas = []  # lista de cuentas (Inversion)
+        self.__cuentas = []
 
     def agregarCuenta(self, cuenta):
-        self.__cuentas.append(cuenta)
+        if self.recuperarCuenta(cuenta.mostrar()[0]) is None:
+            self.__cuentas.append(cuenta)
+            return True
+        else:
+            print("La cuenta ya existe")
+            return False
 
     def borrarCuenta(self, nombre):
-        for cuenta in self.__cuentas:
-            if cuenta.mostrar()[0] == nombre:
-                self.__cuentas.remove(cuenta)
-                return True
-        return False
+        cuenta = self.recuperarCuenta(nombre)
+        if cuenta:
+            self.__cuentas.remove(cuenta)
+            return True
+        else:
+            print("Cuenta no encontrada")
+            return False
 
     def recuperarCuenta(self, nombre):
         for cuenta in self.__cuentas:
@@ -33,10 +40,16 @@ class Cliente:
         else:
             for cuenta in self.__cuentas:
                 nombre, saldo, interes, tiempo = cuenta.mostrar()
-                print("\nNombre:", nombre)
+                print("\n" + "-"*40)
+                print("Nombre:", nombre)
                 print("Saldo:", saldo)
                 print("Interes:", interes)
                 print("Tiempo:", tiempo, "meses")
+                print("-"*40)
+
+    def ordenarPorSaldo(self):
+        self.__cuentas.sort(key=lambda c: c.mostrar()[1])
+        print("Cuentas ordenadas por saldo")
 
     def __str__(self):
         texto = ""
