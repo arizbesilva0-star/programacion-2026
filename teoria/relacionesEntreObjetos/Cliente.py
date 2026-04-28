@@ -5,11 +5,14 @@ Created on Marzo, 2026
 
 class Cliente:
 
-    def __init__(self, nombre, cuenta):
-        # ATRIBUTOS PÚBLICOS
+    def __init__(self, nombre, direccion, edad, cuenta):
         self.nombre = nombre
+        self.direccion = direccion
+        self.edad = edad
         self.cuenta = cuenta
 
-    def __str__(self):
-        # MÉTODO PÚBLICO (usa getters porque Cuenta es privada internamente)
-        return "Cliente: " + self.nombre + " | " + self.cuenta.getTipo() + " | Saldo: " + str(self.cuenta.getSaldo())
+    def mostrarDetalles(self):
+        print("Nombre::", self.nombre)
+        print("Direccion::", self.direccion)
+        print("Edad::", self.edad)
+        self.cuenta.mostrarDetalles()
