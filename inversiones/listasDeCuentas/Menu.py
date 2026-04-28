@@ -1,23 +1,21 @@
 """
-Created on Febrero, 2026
+Created on Marzo, 2026
 @author: arizbesilva0-star
 """
 
 class Menu:
 
-    def __init__(self, mensaje):
-        self.mensaje = mensaje
+    def __init__(self, titulo):
+        self.__titulo = titulo
 
     def bienvenida(self):
-        print(self.mensaje)
+        print(self.__titulo)
 
     def opciones(self):
-        print("\nOpciones del sistema:")
-        print("1. Aumentar inversion")
-        print("2. Disminuir inversion")
-        print("3. Calcular monto final")
-        print("4. Mostrar datos")
-        print("5. Salir")
-
-        opcion = input("Selecciona una opcion: ")
-        return opcion
+        print("\n1. Aumentar dinero")
+        print("2. Disminuir dinero")
+        print("3. Calcular inversion")
+        print("4. Mostrar cuentas")
+        print("5. Mostrar cliente")
+        print("6. Salir")
+        return input("Elige una opcion: ")
