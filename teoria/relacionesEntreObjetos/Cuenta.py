@@ -12,8 +12,6 @@ class Cuenta:
     def depositar(self, valor):
         if valor > 0:
             self.cantidad = self.cantidad + valor
-        else:
-            print("valor incorrecto")
 
     def mostrarDetalles(self):
         print("Cantidad::", self.cantidad)
