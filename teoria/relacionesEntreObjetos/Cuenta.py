@@ -5,33 +5,16 @@ Created on Marzo, 2026
 
 class Cuenta:
 
-    def __init__(self, saldo, tipo, fechaCreacion):
-        # ATRIBUTOS PRIVADOS (no se pueden acceder directamente desde fuera)
-        self.__saldo = saldo
-        self.__tipo = tipo
-        self.__fechaCreacion = fechaCreacion
+    def __init__(self, cantidad, tipo):
+        self.cantidad = cantidad
+        self.tipo = tipo
 
-    def depositar(self, cantidad):
-        # MÉTODO PÚBLICO
-        if cantidad <= 0:
-            return False
-        self.__saldo += cantidad
-        return True
+    def depositar(self, valor):
+        if valor > 0:
+            self.cantidad = self.cantidad + valor
+        else:
+            print("valor incorrecto")
 
-    def retirar(self, cantidad):
-        # MÉTODO PÚBLICO
-        if cantidad > self.__saldo:
-            return False
-        self.__saldo -= cantidad
-        return True
-
-    # GETTERS (métodos públicos para acceder a atributos privados)
-    def getSaldo(self):
-        return self.__saldo
-
-    def getTipo(self):
-        return self.__tipo
-
-    def __str__(self):
-        # MÉTODO PÚBLICO
-        return "Saldo: " + str(self.__saldo) + ", Tipo: " + self.__tipo
+    def mostrarDetalles(self):
+        print("Cantidad::", self.cantidad)
+        print("Tipo::", self.tipo)
