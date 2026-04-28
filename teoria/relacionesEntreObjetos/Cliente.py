@@ -11,7 +11,7 @@ class Cliente:
         self.edad = edad
         self.cuenta = cuenta
 
-    def mostrarDetalles(self):
+    def imprimirDetalles(self):
         print("Nombre::", self.nombre)
         print("Direccion::", self.direccion)
         print("Edad::", self.edad)
