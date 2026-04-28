@@ -1,39 +1,71 @@
 """
-Created on Febrero, 2019
-@author: arizbesilva0-star
+Created on April, 2026
+@author: arizbesilva-star
 """
 
-from Inversion import *
-from Menu import *
+from Inversion import Inversion
+from Cliente import Cliente
+from Menu import Menu
 
-menu = Menu("Bienvenido al Sistema de Inversiones")
+cliente1 = Cliente("Arizbe", "CDMX", 20)
 
-inversion1 = Inversion(1000, 0.05, 12, "Inversion Banco BBVA")
+# ahora las inversiones se agregan al cliente
+inversion1 = Inversion(1000, 0.10, 2, "Inversion BBVA")
+inversion2 = Inversion(2000, 0.15, 1, "Inversion Banamex")
+
+cliente1.agregarCuenta(inversion1)
+cliente1.agregarCuenta(inversion2)
+
+menu = Menu("Sistema de inversiones")
 
 menu.bienvenida()
 
 while True:
 
-    opcion = menu.opciones()
+    opcion = menu.opciones().strip()
 
     if opcion == "1":
-        cantidad = float(input("Cantidad a aumentar: "))
-        inversion1.aumentar(cantidad)
-        print("Capital actualizado:", inversion1.capital)
+        nombre = input("Nombre de la cuenta: ")
+        cuenta = cliente1.recuperarCuenta(nombre)
+        if cuenta:
+            try:
+                cantidad = float(input("Cantidad a aumentar: "))
+                if cuenta.aumentar(cantidad):
+                    print("Cantidad aumentada")
+            except ValueError:
+                print("Ingresa un numero valido")
+        else:
+            print("Cuenta no encontrada")
 
     elif opcion == "2":
-        cantidad = float(input("Cantidad a disminuir: "))
-        inversion1.disminuir(cantidad)
-        print("Capital actualizado:", inversion1.capital)
+        nombre = input("Nombre de la cuenta: ")
+        cuenta = cliente1.recuperarCuenta(nombre)
+        if cuenta:
+            try:
+                cantidad = float(input("Cantidad a disminuir: "))
+                if cuenta.disminuir(cantidad):
+                    print("Cantidad disminuida")
+            except ValueError:
+                print("Ingresa un numero valido")
+        else:
+            print("Cuenta no encontrada")
 
     elif opcion == "3":
-        resultado = inversion1.calcular()
-        print("Monto final de la inversion:", resultado)
+        nombre = input("Nombre de la cuenta: ")
+        cuenta = cliente1.recuperarCuenta(nombre)
+        if cuenta:
+            resultado = cuenta.calcular()
+            print("Monto final de la inversion:", resultado)
+        else:
+            print("Cuenta no encontrada")
 
     elif opcion == "4":
-        inversion1.mostrar()
+        cliente1.mostrarCuentas()
 
     elif opcion == "5":
+        print(cliente1)
+
+    elif opcion == "6":
         print("Saliendo del sistema...")
         break
 
