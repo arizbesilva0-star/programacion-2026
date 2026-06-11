@@ -5,7 +5,6 @@ Created on June, 2026
 
 from Inversion import Inversion
 
-
 class InversionAhorro(Inversion):
 
     def __init__(
