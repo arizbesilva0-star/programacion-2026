@@ -5,7 +5,6 @@ Created on June, 2026
 
 import matplotlib.pyplot as plt
 
-
 class Graficas:
 
     def graficaInversionesClientes(self, banco):
