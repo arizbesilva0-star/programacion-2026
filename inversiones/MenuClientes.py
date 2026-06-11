@@ -2,7 +2,6 @@
 Created on June, 2026
 @author: arizbesilva-star
 """
-
 class MenuClientes:
 
     def mostrar(self):
