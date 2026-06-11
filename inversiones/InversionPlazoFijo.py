@@ -5,7 +5,6 @@ Created on June, 2026
 
 from Inversion import Inversion
 
-
 class InversionPlazoFijo(Inversion):
 
     def __init__(
