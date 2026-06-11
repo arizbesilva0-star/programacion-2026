@@ -20,7 +20,6 @@ from Graficas import Graficas
 class Principal:
     pass
 
-
 banco = Banco()
 banco.cargarClientes()
 
@@ -30,7 +29,6 @@ menuInversiones = MenuInversiones()
 menuEstadisticas = MenuEstadisticas()
 
 graficas = Graficas()
-
 
 print("=" * 60)
 print("SISTEMA DE INVERSIONES".center(60))
